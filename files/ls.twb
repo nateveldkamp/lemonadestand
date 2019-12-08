@@ -1,0 +1,699 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 10400.17.0915.2112                               -->
+<workbook original-version='10.4' source-build='10.4.0 (10400.17.0915.2112)' source-platform='win' version='10.4' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='Sheet1 (lem_stand_results)' inline='true' name='federated.042941r0lqbxx516r85op01bs7ov' version='10.4'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='lem_stand_results' name='excel-direct.1tqw9y00e3iwcq114qsv51xvk6b3'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Users/nveldkamp/Desktop/Training/ls/data/lem_stand_results.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation connection='excel-direct.1tqw9y00e3iwcq114qsv51xvk6b3' name='Sheet1' table='[Sheet1$]' type='table'>
+          <columns gridOrigin='A1:U1001:no:A1:U1001:0' header='yes' outcome='6'>
+            <column datatype='integer' name='Day' ordinal='0' />
+            <column datatype='string' name='Weather' ordinal='1' />
+            <column datatype='integer' name='PricePerGlass' ordinal='2' />
+            <column datatype='integer' name='SignsMade' ordinal='3' />
+            <column datatype='integer' name='GlassesMade' ordinal='4' />
+            <column datatype='integer' name='GlassesSold' ordinal='5' />
+            <column datatype='real' name='Profit' ordinal='6' />
+            <column datatype='real' name='Assets' ordinal='7' />
+            <column datatype='boolean' name='Storm' ordinal='8' />
+            <column datatype='boolean' name='StreetCrewWorking' ordinal='9' />
+            <column datatype='boolean' name='StreetCrewThirsty' ordinal='10' />
+            <column datatype='real' name='WeatherFactor' ordinal='11' />
+            <column datatype='integer' name='ChanceOfRain' ordinal='12' />
+            <column datatype='real' name='BaseDemand' ordinal='13' />
+            <column datatype='real' name='SignBenefit' ordinal='14' />
+            <column datatype='real' name='DemandMultiplier' ordinal='15' />
+            <column datatype='integer' name='AdjUnits' ordinal='16' />
+            <column datatype='integer' name='CostPerGlass' ordinal='17' />
+            <column datatype='real' name='CostPerSign' ordinal='18' />
+            <column datatype='real' name='Income' ordinal='19' />
+            <column datatype='real' name='Expenses' ordinal='20' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>Day</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Day]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>Day</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Weather</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Weather]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>Weather</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PricePerGlass</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[PricePerGlass]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>PricePerGlass</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SignsMade</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[SignsMade]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>SignsMade</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>GlassesMade</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[GlassesMade]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>GlassesMade</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>GlassesSold</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[GlassesSold]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>GlassesSold</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Profit</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Profit]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>Profit</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Assets</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Assets]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>Assets</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Storm</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[Storm]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>Storm</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WINBOOL&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>StreetCrewWorking</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[StreetCrewWorking]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>StreetCrewWorking</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WINBOOL&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>StreetCrewThirsty</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[StreetCrewThirsty]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>StreetCrewThirsty</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WINBOOL&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>WeatherFactor</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[WeatherFactor]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>WeatherFactor</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ChanceOfRain</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ChanceOfRain]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>ChanceOfRain</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>BaseDemand</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[BaseDemand]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>BaseDemand</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SignBenefit</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[SignBenefit]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>SignBenefit</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DemandMultiplier</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[DemandMultiplier]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>DemandMultiplier</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AdjUnits</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[AdjUnits]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>AdjUnits</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CostPerGlass</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[CostPerGlass]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>CostPerGlass</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CostPerSign</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[CostPerSign]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>CostPerSign</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Income</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Income]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>Income</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Expenses</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Expenses]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>Expenses</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:U1001:no:A1:U1001:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Adj Units' datatype='integer' name='[AdjUnits]' role='measure' type='quantitative' />
+      <column caption='Base Demand' datatype='real' name='[BaseDemand]' role='measure' type='quantitative' />
+      <column caption='Unknown Demand' datatype='boolean' name='[Calculation_535646901061480448]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='[GlassesMade]=[GlassesSold]' />
+      </column>
+      <column aggregation='Sum' caption='Chance Of Rain' datatype='integer' name='[ChanceOfRain]' role='dimension' type='ordinal' />
+      <column caption='Cost Per Glass' datatype='integer' name='[CostPerGlass]' role='measure' type='quantitative' />
+      <column caption='Cost Per Sign' datatype='real' name='[CostPerSign]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Day]' role='dimension' type='ordinal' />
+      <column caption='Demand Multiplier' datatype='real' name='[DemandMultiplier]' role='measure' type='quantitative' />
+      <column caption='Glasses Made' datatype='integer' name='[GlassesMade]' role='measure' type='quantitative' />
+      <column caption='Glasses Sold' datatype='integer' name='[GlassesSold]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Price Per Glass' datatype='integer' name='[PricePerGlass]' role='measure' type='quantitative' />
+      <column caption='Sign Benefit' datatype='real' name='[SignBenefit]' role='measure' type='quantitative' />
+      <column caption='Signs Made' datatype='integer' name='[SignsMade]' role='measure' type='ordinal' />
+      <column caption='Street Crew Thirsty' datatype='boolean' name='[StreetCrewThirsty]' role='dimension' type='nominal' />
+      <column caption='Street Crew Working' datatype='boolean' name='[StreetCrewWorking]' role='dimension' type='nominal' />
+      <column caption='Weather Factor' datatype='real' name='[WeatherFactor]' role='measure' type='quantitative' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.18355' measure-ordering='alphabetic' measure-percentage='0.81645' show-structure='true' user-set-layout='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Sheet1 (lem_stand_results)' name='federated.042941r0lqbxx516r85op01bs7ov' />
+          </datasources>
+          <datasource-dependencies datasource='federated.042941r0lqbxx516r85op01bs7ov'>
+            <column caption='Unknown Demand' datatype='boolean' name='[Calculation_535646901061480448]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='[GlassesMade]=[GlassesSold]' />
+            </column>
+            <column aggregation='Sum' caption='Chance Of Rain' datatype='integer' name='[ChanceOfRain]' role='dimension' type='ordinal' />
+            <column datatype='integer' name='[Day]' role='dimension' type='ordinal' />
+            <column caption='Glasses Made' datatype='integer' name='[GlassesMade]' role='measure' type='quantitative' />
+            <column caption='Glasses Sold' datatype='integer' name='[GlassesSold]' role='measure' type='quantitative' />
+            <column caption='Price Per Glass' datatype='integer' name='[PricePerGlass]' role='measure' type='quantitative' />
+            <column caption='Signs Made' datatype='integer' name='[SignsMade]' role='measure' type='ordinal' />
+            <column datatype='boolean' name='[Storm]' role='dimension' type='nominal' />
+            <column caption='Street Crew Thirsty' datatype='boolean' name='[StreetCrewThirsty]' role='dimension' type='nominal' />
+            <column caption='Street Crew Working' datatype='boolean' name='[StreetCrewWorking]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Weather]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_535646901061480448]' derivation='None' name='[none:Calculation_535646901061480448:nk]' pivot='key' type='nominal' />
+            <column-instance column='[ChanceOfRain]' derivation='None' name='[none:ChanceOfRain:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Day]' derivation='None' name='[none:Day:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Storm]' derivation='None' name='[none:Storm:nk]' pivot='key' type='nominal' />
+            <column-instance column='[StreetCrewThirsty]' derivation='None' name='[none:StreetCrewThirsty:nk]' pivot='key' type='nominal' />
+            <column-instance column='[StreetCrewWorking]' derivation='None' name='[none:StreetCrewWorking:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Weather]' derivation='None' name='[none:Weather:nk]' pivot='key' type='nominal' />
+            <column-instance column='[GlassesMade]' derivation='Sum' name='[sum:GlassesMade:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[GlassesSold]' derivation='Sum' name='[sum:GlassesSold:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[PricePerGlass]' derivation='Sum' name='[sum:PricePerGlass:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[SignsMade]' derivation='Sum' name='[sum:SignsMade:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.042941r0lqbxx516r85op01bs7ov].[none:Calculation_535646901061480448:nk]'>
+            <groupfilter function='member' level='[none:Calculation_535646901061480448:nk]' member='false' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.042941r0lqbxx516r85op01bs7ov].[none:Calculation_535646901061480448:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='height' field='[federated.042941r0lqbxx516r85op01bs7ov].[sum:GlassesSold:qk]' value='50' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.042941r0lqbxx516r85op01bs7ov].[none:ChanceOfRain:ok]' />
+              <lod column='[federated.042941r0lqbxx516r85op01bs7ov].[none:Day:ok]' />
+              <lod column='[federated.042941r0lqbxx516r85op01bs7ov].[sum:GlassesMade:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minheight' value='308' />
+                <format attr='maxheight' value='308' />
+                <format attr='minwidth' value='243' />
+                <format attr='maxwidth' value='243' />
+                <format attr='aspect' value='0' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.042941r0lqbxx516r85op01bs7ov].[sum:PricePerGlass:qk]</rows>
+        <cols>(([federated.042941r0lqbxx516r85op01bs7ov].[none:Weather:nk] / ([federated.042941r0lqbxx516r85op01bs7ov].[none:StreetCrewWorking:nk] / ([federated.042941r0lqbxx516r85op01bs7ov].[none:StreetCrewThirsty:nk] / ([federated.042941r0lqbxx516r85op01bs7ov].[none:Storm:nk] / ([federated.042941r0lqbxx516r85op01bs7ov].[none:ChanceOfRain:ok] / [federated.042941r0lqbxx516r85op01bs7ov].[sum:SignsMade:ok]))))) * [federated.042941r0lqbxx516r85op01bs7ov].[sum:GlassesSold:qk])</cols>
+      </table>
+    </worksheet>
+    <worksheet name='Sheet 2'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.042941r0lqbxx516r85op01bs7ov].[none:Calculation_535646901061480448:nk]' type='filter' />
+            <card pane-specification-id='1' param='[federated.042941r0lqbxx516r85op01bs7ov].[none:ChanceOfRain:ok]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <selection-collection>
+          <node-selection select-tuples='false'>
+            <oriented-node-reference orientation='horizontal'>
+              <node-reference>
+                <fields>
+                  <field>[federated.042941r0lqbxx516r85op01bs7ov].[none:Weather:nk]</field>
+                  <field>[federated.042941r0lqbxx516r85op01bs7ov].[none:StreetCrewWorking:nk]</field>
+                  <field>[federated.042941r0lqbxx516r85op01bs7ov].[none:StreetCrewThirsty:nk]</field>
+                  <field>[federated.042941r0lqbxx516r85op01bs7ov].[none:Storm:nk]</field>
+                  <field>[federated.042941r0lqbxx516r85op01bs7ov].[none:ChanceOfRain:ok]</field>
+                </fields>
+                <multibucket>
+                  <bucket>&quot;Cloudy&quot;</bucket>
+                  <bucket>false</bucket>
+                  <bucket>false</bucket>
+                  <bucket>true</bucket>
+                  <bucket>70</bucket>
+                </multibucket>
+                <axis>[federated.042941r0lqbxx516r85op01bs7ov].[sum:GlassesSold:qk]</axis>
+              </node-reference>
+              <page-reference />
+            </oriented-node-reference>
+          </node-selection>
+        </selection-collection>
+        <highlight>
+          <color-one-way>
+            <field>[federated.042941r0lqbxx516r85op01bs7ov].[none:Calculation_535646901061480448:nk]</field>
+            <field>[federated.042941r0lqbxx516r85op01bs7ov].[none:ChanceOfRain:ok]</field>
+            <field>[federated.042941r0lqbxx516r85op01bs7ov].[none:Day:ok]</field>
+            <field>[federated.042941r0lqbxx516r85op01bs7ov].[none:Storm:nk]</field>
+            <field>[federated.042941r0lqbxx516r85op01bs7ov].[none:StreetCrewThirsty:nk]</field>
+            <field>[federated.042941r0lqbxx516r85op01bs7ov].[none:StreetCrewWorking:nk]</field>
+            <field>[federated.042941r0lqbxx516r85op01bs7ov].[none:Weather:nk]</field>
+            <field>[federated.042941r0lqbxx516r85op01bs7ov].[sum:SignsMade:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='worksheet' name='Sheet 2'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Sheet 2' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAACFUlEQVR4nO3TMQEAIAzAMMC/5yFjRxMFfXpnZg5Eve0A2GQA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQD
+      kGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBp
+      BiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA
+      0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDN
+      AKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxA
+      mgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZ
+      gDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFI
+      MwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKQZgDQDkGYA0gxAmgFIMwBpBiDNAKR9Y+0F
+      fBUOM1sAAAAASUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+</workbook>
