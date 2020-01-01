@@ -9,7 +9,7 @@ def get_weather(day=1):
         weather = 'Sunny'
     elif r < 0.8:   # 20% chance Cloudy
         weather = 'Cloudy'
-    else:           # 20% chance HOT
+    else:           # 20% chance Hot
         if day < 3:
             weather = 'Sunny'
         else:
@@ -61,24 +61,35 @@ def get_weather_factor(weather, rain=0, street_crew_working=False):
     return weather_factor
 # get_weather_factor('Cloudy')
 
-#%% glasses sold
-def get_glasses_sold(glasses_made, signs_made, price, weather_factor=1.0, storm=False, street_crew_working=False, street_crew_thirsty=False, meta=False):
+#%% marketing factor
+def get_marketing_factor(signs_made):
+    # constants
+    sign_factor_1 = 0.5
+    sign_factor_2 = 1
+    # % increase in sales due to ads
+    w = -signs_made * sign_factor_1
+    sign_benefit = 1+(1-(math.exp(w) * sign_factor_2))
+    return sign_benefit
+# get_marketing_factor(signs_made=9)
+
+#%% base demand
+def get_base_demand(price):
     # constants
     price_factor_1 = 10
     price_factor_2 = 30
-    sign_factor_1 = 0.5
-    sign_factor_2 = 1
     # base units calc
     if price >= price_factor_1:
         base_demand = ((price_factor_1 ** 2) * price_factor_2 / price ** 2)
     else:
-        base_demand = (price_factor_1 - price) / \
-            price_factor_1 * 0.8 * price_factor_2 + price_factor_2
-    # % increase in sales due to ads
-    w = -signs_made * sign_factor_1
-    sign_benefit = 1 - (math.exp(w) * sign_factor_2)
-    # calculate adjusted units
-    demand_multiplier = weather_factor * (1 + sign_benefit)
+        base_demand = (price_factor_1 - price) / price_factor_1 * 0.8 * price_factor_2 + price_factor_2
+    return base_demand
+# get_base_demand(price=9)
+
+#%% glasses sold
+def get_glasses_sold(glasses_made, base_demand, weather_factor=1.0, marketing_factor=1.0, 
+        storm=False, street_crew_working=False, street_crew_thirsty=False, meta=False):
+    # calculate adjusted demand
+    demand_multiplier = weather_factor * marketing_factor
     demand = math.floor(demand_multiplier * base_demand)
     # special events
     if storm:
@@ -91,14 +102,11 @@ def get_glasses_sold(glasses_made, signs_made, price, weather_factor=1.0, storm=
     # calculate glasses sold
     glasses_sold = min(demand, glasses_made)
     if meta:
-        return {'glasses_sold': glasses_sold, 'base_demand': base_demand,
-                'sign_benefit': sign_benefit, 'demand_multiplier': demand_multiplier, 'demand': demand}
+        return {'glasses_sold': glasses_sold, 'demand_multiplier': demand_multiplier, 'demand': demand}
     else:
         return glasses_sold
-
-# a = get_glasses_sold(glasses_made=80,price=9, signs_made=2,
-#                  weather_factor=1.0, storm=False, street_crew_thirsty=False, meta=True)
-# a['glasses_sold']
+# get_glasses_sold(glasses_made=80,base_demand=50, weather_factor=1.0, marketing_factor=1.5,
+#         storm=False, street_crew_working=True, street_crew_thirsty=True, meta=False)
 
 #%% cost per glass
 def get_cost_per_glass(day=1):
@@ -118,16 +126,14 @@ def get_financials(glasses_made, signs_made, price, assets, glasses_sold, cost_p
     profit = income - expenses
     assets = assets + profit
     return income, expenses, profit, assets
-
-# r= get_financials(glasses_made=10, signs_made=1, price=8, assets=2.00, glasses_sold=9,
-#                cost_per_glass=.05, cost_per_sign=0.15)
-# r
+# get_financials(glasses_made=10, signs_made=1, price=8, assets=2.00, glasses_sold=9,
+#         cost_per_glass=.05, cost_per_sign=0.15)
 
 #%% main function
 def get_ls_results(glasses_made, signs_made, price,
                 day = 1, assets = 2.00, 
                 weather=None, chance_of_rain=None, street_crew_working=None,
-                street_crew_thirsty=None, storm=None, printresults=False):
+                street_crew_thirsty=None, storm=None):
     # calculate variables
     weather = weather or get_weather(day)
     chance_of_rain = chance_of_rain or get_chance_of_rain(weather)
@@ -135,67 +141,46 @@ def get_ls_results(glasses_made, signs_made, price,
     street_crew_working = street_crew_working or get_street_crew(weather)[0]
     street_crew_thirsty = street_crew_thirsty or get_street_crew(weather)[1]
     weather_factor = get_weather_factor(weather, chance_of_rain, street_crew_working)
-    
+    marketing_factor = get_marketing_factor(signs_made)
+    base_demand = get_base_demand(price)
     # calculate how many glasses are sold
-    results = get_glasses_sold(glasses_made, signs_made, price, weather_factor, storm, street_crew_working, street_crew_thirsty, meta=True)
+    results = get_glasses_sold(glasses_made, base_demand, weather_factor, marketing_factor, storm, street_crew_working, street_crew_thirsty, meta=True)
     glasses_sold = results['glasses_sold']
     cost_per_glass = get_cost_per_glass(day)
     cost_per_sign = 0.15
     income, expenses, profit, assets = get_financials(
         glasses_made, signs_made, price, assets, glasses_sold, cost_per_glass, cost_per_sign)
-
     # save results to dictionary
     d = {}
     d['Day'] = day
     d['Weather'] = weather
-    d['GlassesMade'] = glasses_made  
     d['SignsMade'] = signs_made
-    d['PricePerGlass'] = price
-    d['WeatherFactor'] = weather_factor
     d['ChanceOfRain'] = chance_of_rain
     d['Storm'] = storm
     d['StreetCrewWorking'] = street_crew_working
     d['StreetCrewThirsty'] = street_crew_thirsty
-    d['BaseDemand'] = results['base_demand']
-    d['SignBenefit'] = results['sign_benefit']
+    d['BaseDemand'] = base_demand
+    d['WeatherFactor'] = weather_factor
+    d['MarketingFactor'] = marketing_factor
     d['DemandMultiplier'] = results['demand_multiplier']
-    d['AdjUnits'] = results['demand']
+    d['AdjDemand'] = results['demand']
+    d['GlassesMade'] = glasses_made
     d['GlassesSold'] = results['glasses_sold']
+    d['PricePerGlass'] = price
     d['CostPerGlass'] = cost_per_glass
     d['CostPerSign'] = cost_per_sign
     d['Income'] = income
     d['Expenses'] = expenses
     d['Profit'] = profit
     d['Assets'] = assets
-
-    #return
-    if printresults: # print results
-        print('Day: ', d['Day'])
-        print('Weather: ', d['Weather'])       
-        print('PricePerGlass: ', d['PricePerGlass'])
-        print('SignsMade: ', d['signs_madeMade'])
-        print('GlassesMade: ', d['GlassesMade'])
-        print('GlassesSold: ', d['GlassesSold'])
-        print('Profit: ', d['Profit'])        
-        print('Assets: ', d['Assets'])
-        print('Storm: ', d['Storm'])        
-        print('StreetCrewWorking: ', d['StreetCrewWorking'])
-        print('StreetCrewThirsty: ', d['StreetCrewThirsty'])     
-        print('WeatherFactor: ', d['WeatherFactor'])
-        print('ChanceOfRain: ', d['ChanceOfRain'])
-        print('BaseDemand: ', d['base_demand'])
-        print('SignBenefit: ', d['sign_benefit'])
-        print('DemandMultiplier: ', d['demand_multiplier'])
-        print('AdjUnits: ', d['demand'])
-        print('CostPerGlass: ', d['CostPerGlass'])
-        print('CostPerSign: ', d['cost_per_sign'])
-        print('Income: ', d['Income'])
-        print('Expenses: ', d['Expenses'])
-    else:  # return dictionary
-        return d
+    # return results
+    return d
 
 #%% example day
-# get_ls_results(glasses_made=70, signs_made=9, price=9,
-#             day=1, assets=2.00,
-#             weather=None, chance_of_rain=None, street_crew_working=None,
-#             street_crew_thirsty=None, storm=None, printresults=False)
+# get_ls_results(glasses_made=70, signs_made=9, price=9)
+get_ls_results(glasses_made=70, signs_made=9, price=9,
+            day=8, assets=2.00,
+            weather=None, chance_of_rain=None, street_crew_working=None,
+            street_crew_thirsty=None, storm=None)
+
+# %%

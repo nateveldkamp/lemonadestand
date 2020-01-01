@@ -1,5 +1,7 @@
 #%% imports
-from lemonadestand import get_ls_results
+import sys
+sys.path.append('../functions')
+from functions import get_ls_results
 import json
 import pandas as pd
 import math
