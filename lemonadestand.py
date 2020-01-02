@@ -66,8 +66,9 @@ def get_marketing_factor(signs_made):
     # constants
     sign_factor_1 = 0.5
     sign_factor_2 = 1
-    # % increase in sales due to ads
-    w = -signs_made * sign_factor_1
+    # % increase in sales due to ads 
+    # https://www.desmos.com/calculator/j87ze6ebuv
+    w = -signs_made * sign_factor_1 
     sign_benefit = 1+(1-(math.exp(w) * sign_factor_2))
     return sign_benefit
 # get_marketing_factor(signs_made=9)
@@ -78,9 +79,10 @@ def get_base_demand(price):
     price_factor_1 = 10
     price_factor_2 = 30
     # base units calc
-    if price >= price_factor_1:
-        base_demand = ((price_factor_1 ** 2) * price_factor_2 / price ** 2)
-    else:
+    # hhttps://www.desmos.com/calculator/jeruz5purt
+    if price >= price_factor_1: # y = (10^2 * 30) / x^2 {x>=10}
+        base_demand = (((price_factor_1 ** 2) * price_factor_2) / price ** 2)
+    else: # y = (10-x) / 10 * .8 * 30 + 30
         base_demand = (price_factor_1 - price) / price_factor_1 * 0.8 * price_factor_2 + price_factor_2
     return base_demand
 # get_base_demand(price=9)
