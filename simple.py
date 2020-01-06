@@ -1,4 +1,5 @@
 #%% imports
+import math
 from random import random
 def weather():
     r = random()
