@@ -23,3 +23,4 @@ weather = weather()
 print(weather)
 results = results(weather, glasses=50, signs=1, price=12)
 print(results)
+#test
