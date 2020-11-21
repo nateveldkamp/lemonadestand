@@ -1,0 +1,8 @@
+README.md
+lemonadestand.py
+setup.py
+lemonadestand.egg-info/PKG-INFO
+lemonadestand.egg-info/SOURCES.txt
+lemonadestand.egg-info/dependency_links.txt
+lemonadestand.egg-info/requires.txt
+lemonadestand.egg-info/top_level.txt

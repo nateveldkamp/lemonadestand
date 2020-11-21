@@ -88,8 +88,7 @@ def get_base_demand(price):
 # get_base_demand(price=9)
 
 #%% glasses sold
-def get_glasses_sold(glasses_made, base_demand, weather_factor=1.0, marketing_factor=1.0, 
-        storm=False, street_crew_working=False, street_crew_thirsty=False, meta=False):
+def get_glasses_sold(glasses_made, base_demand, weather_factor=1.0, marketing_factor=1.0, storm=False, street_crew_working=False, street_crew_thirsty=False, meta=False):
     # calculate adjusted demand
     demand_multiplier = weather_factor * marketing_factor
     demand = math.floor(demand_multiplier * base_demand)
@@ -180,9 +179,9 @@ def get_ls_results(glasses_made, signs_made, price,
 
 #%% example day
 # get_ls_results(glasses_made=70, signs_made=9, price=9)
-get_ls_results(glasses_made=70, signs_made=9, price=9,
-            day=8, assets=2.00,
-            weather=None, chance_of_rain=None, street_crew_working=None,
-            street_crew_thirsty=None, storm=None)
+# get_ls_results(glasses_made=70, signs_made=9, price=9,
+#             day=8, assets=2.00,
+#             weather=None, chance_of_rain=None, street_crew_working=None,
+#             street_crew_thirsty=None, storm=None)
 
 # %%
